@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Apk izat</title>
+  
+  <!-- HTML -->
+  
+<style>
+  
+  
+  body.dark {
+       --primary-color: #000000;
+       --primary-hover: #000000;
+       --secondary-color: #242D39;
+       --secondary-hover: #525A7E;
+       --accent-color: #4B63D1;
+       --accent-hover: #CE0000;
+       --bg-color: #1F2163;
+       --player-bg: linear-gradient(135deg, #333, #444);
+       --text-color: #fff;
+       --progress-bg: #555;
+       --time-color: #ccc;
+       --playlist-bg: #444;
+       --playlist-hover: #555;
+       --error-color: #e57373;
+       --success-color: #81c784;
+       --warning-color: #ffb74d;
+       --glow-color: rgba(102, 187, 106, 0.3);
+       --shadow-color: rgba(0, 0, 0, 0.3);
+   }
+   body.light{
+      background:#FFFFFF;
+      --player-bg: #000000;
+   }
+   
+   body.black{
+   background: #000000;
+--player-bg: linear-gradient(135deg, #000000,#00FFF3);
+   }
+   
+   body {
+       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       min-height: 100vh;
+       margin: 0;
+       background: radial-gradient(circle at center, var(--bg-color), #272D6C);
+       transition: background 0.3s ease;
+       color: var(--text-color);
+       overflow: auto;
+   }
+   #theme-selector {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: var(--player-bg);
+            border: 2px solid var(--progress-bg);
+            border-radius: 8px;
+            padding: 8px;
+            cursor: pointer;
+            color: var(--text-color);
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        #theme-selector:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 8px var(--glow-color);
+            transform: scale(1.05);
+        }
+
+.name{
+    position: absolute;
+    left: 105px;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    border-radius: 50px;
+    background: black;
+    align-content: center;
+    top: 18px;
+    font-family: serif;
+    font-style: italic;
+    font-size: 0.7cm;
+    color: #00DDFF;
+    text-shadow: 0 0 10px #00DDFF;
+   
+}
+table{
+    position: absolute;
+    background: none;
+    height: 50px;
+    width: 200px;
+    border-radius: 25px;
+    top: 18px;
+    left: 105px;
+    animation: anim 1s linear infinite;
+}
+@keyframes anim{
+    0%, 100%{border: 2px dashed red;
+        box-shadow: 0px 0px 10px #00F3EB;
+    }
+    50%{
+        border: 2px dashed green;
+        box-shadow: 0px 0px 10px yellow;
+    }
+}
+#search{
+    position: absolute;
+    left: 100px;
+    top: 90px;
+    border-radius: 50px;
+}
+
+        #theme-selector {
+            position: absolute;
+            width: 75px;
+            top: 25px;
+            right: 10px;
+            background: var(--player-bg);
+            border: 1px solid var(--progress-bg);
+            border-radius: 8px;
+            padding: 8px;
+            cursor: pointer;
+            color: var(--text-color);
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        #theme-selector:hover {
+            border-color: red;
+            box-shadow: 0 0 8px var(--glow-color);
+            transform: scale(1.05);
+        }
+
+  
+  
+  
+</style>
+</head>
+
+<body id="h">
+  <table>
+  <div class="name">Apk Izat</div>
+  </table>
+ 
+  
+ <input type="search" id="search" placeholder="search" autofocus>
+   <select id="theme-selector" aria-label="Select Theme">
+     <option value="light">Light 🌞</option>
+     <option value="dark">blue❄️</option>
+     <option value="black">black🌑</option>
+   </select>
+  
+  
+  
+  
+  
+  
+  <script>
+    
+
+const themeSelector = document.getElementById('theme-selector');
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  document.body.className = savedTheme;
+  themeSelector.value = savedTheme;
+}
+themeSelector.addEventListener('change', () => {
+    document.body.className = themeSelector.value;
+    localStorage.setItem('theme', themeSelector.value);
+});
+
+    
+    
+    
+  </script>
+</body>
+</html>
